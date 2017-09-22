@@ -28,6 +28,7 @@ node {
     stage('Push Docker Image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
             app.push("${env.BUILD_NUMBER}-application-security-testing")
+            app.push("latest-application-security-testing")
         }
         sh 'echo "Docker push completed"'
     }
