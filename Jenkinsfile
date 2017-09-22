@@ -9,17 +9,18 @@ node {
          sh 'npm prune'
          sh 'npm install'
          sh 'npm test'
-         sh 'echo "Unit test completed"'     
+         sh 'echo "Unit test completed"'  
+         sh 'rm -rf node_modules'
     }
     stage('E2E Test') {         
-        /*wrap([$class: 'Xvfb', autoDisplayName: true, 'timeout': 15]) {
+        wrap([$class: 'Xvfb', autoDisplayName: true, 'timeout': 15]) {
             sh 'npm run protractor'
             sh 'echo "e2e test completed"'
-        }*/    
+        }
         sh 'echo "e2e test completed"'
     }
     stage('Build Image') {
-        app = docker.build("lkoshy/juice-shop")        
+        app = docker.build("helsinkiowasp/juice-shop")        
         sh 'echo "Docker Image completed"'
     }
     stage('Push Image') {
