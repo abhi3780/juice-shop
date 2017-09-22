@@ -20,7 +20,7 @@ node {
         sh 'echo "e2e test completed"'
     }
     stage('Build Image') {
-        app = docker.build("lkoshy/juice-shop")        
+        app = docker.build("owasp/juice-shop")        
         sh 'echo "Docker Image completed"'
     }
     stage('Push Image') {
