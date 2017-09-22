@@ -18,14 +18,13 @@ node {
         }*/    
         sh 'echo "e2e test completed"'
     }
-    stage('Build Image') {
-        app = docker.build("lkoshy/juice-shop")        
+    stage('Build Docker Image') {
+        app = docker.build("helsinkiowasp/juice-shop")        
         sh 'echo "Docker Image completed"'
     }
-    stage('Push Image') {
+    stage('Push Docker Image') {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("${env.BUILD_NUMBER}-Application-security-testing")
         }
         sh 'echo "Docker push completed"'
     }
