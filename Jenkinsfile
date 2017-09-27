@@ -31,7 +31,7 @@ node {
             app.push("latest-platform-hardening-and-testing")
         }
         sh 'echo "Docker push completed"'
-	sh 'ssh owasp-2 "touch test"'
+	sh 'ssh ubuntu@52.59.209.78 touch test'
 
     }         
 }
