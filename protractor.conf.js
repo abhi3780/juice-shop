@@ -20,7 +20,7 @@ exports.config = {
   	}
   },
 
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://54.93.221.138:3000',
 
   framework: 'jasmine2',
 
