@@ -28,9 +28,9 @@ node {
             app.push("latest")
         }
         sh 'echo "Docker push completed"'
-        sshagent(credentials: ['ubuntu']) {
+        /*sshagent(credentials: ['ubuntu']) {
             sh 'ssh ubuntu@35.158.126.190 touch test'
-        }
+        }*/
        
     }
            
