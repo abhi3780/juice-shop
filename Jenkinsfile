@@ -22,7 +22,10 @@ node {
 */
     stage('Application security testing') {      
         sh 'echo "Trying to run depedency check"'
-	sh 'ls -l /home/ubuntu/dependency-check/bin/dependency-check.sh'
+        dependencyCheckAnalyzer datadir: 'dependency-check-data', isFailOnErrorDisabled: true, hintsFile: '', includeCsvReports: false, includeHtmlReports: false, includeJsonReports: false, isAutoupdateDisabled: false, outdir: '', scanpath: '', skipOnScmChange: false, skipOnUpstreamChange: false, suppressionFile: '', zipExtensions: ''
+        dependencyCheckPublisher canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: ''        
+        archiveArtifacts allowEmptyArchive: true, artifacts: '**/dependency-check-report.xml', onlyIfSuccessful: true
+        
 /*	sh '/home/ubuntu/dependency-check/bin/dependency-check.sh --project "Juice Shop" --scan . --format HTML' */
         step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
     }
