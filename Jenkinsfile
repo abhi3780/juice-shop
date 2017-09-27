@@ -21,11 +21,11 @@ node {
     }
 */
     stage('Application security testing') {      
-        sh 'echo "Trying to run depenency check"'
+        sh 'echo "Trying to run depenency check '
         dependencyCheck: {
 
            stage('Dependency Check') {
-		sh 'dependency-check.sh --project "Juice Shop" --scan . --format HTML'
+		sh '/home/ubuntu/dependency-check/bin/dependency-check.sh --project "Juice Shop" --scan . --format HTML'
                 step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
             }
         }
