@@ -44,7 +44,7 @@ node {
         }
         sh 'echo "Docker push completed"'
         sshagent(credentials: ['ubuntu']) {
-            sh 'ssh  -i id_hackathon 35.158.126.190 touch test'
+            sh 'ssh 35.158.126.190 touch test'
             
         }
        
