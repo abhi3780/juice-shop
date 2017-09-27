@@ -22,13 +22,8 @@ node {
 */
     stage('Application security testing') {      
         sh 'echo "Trying to run depedency check"'
-        dependencyCheck: {
-
-           stage('Dependency Check') {
-		sh '/home/ubuntu/dependency-check/bin/dependency-check.sh --project "Juice Shop" --scan . --format HTML'
-                step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
-            }
-        }
+	sh '/home/ubuntu/dependency-check/bin/dependency-check.sh --project "Juice Shop" --scan . --format HTML'
+        step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
     }
 /*
     stage('Build Docker Image') {
