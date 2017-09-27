@@ -12,6 +12,8 @@ node {
          sh 'npm test'
          sh 'echo "Unit test completed"'     
     }
+*/
+
     stage('E2E Test') {         
         wrap([$class: 'Xvfb', autoDisplayName: true, 'timeout': 15]) {
             sh 'npm run protractor'
@@ -19,7 +21,7 @@ node {
         }  
         sh 'echo "e2e test completed"'
     }
-*/
+
     stage('Application security testing') {
         environment {
             analyzer.bundle.audit.enabled=false
