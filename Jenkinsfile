@@ -25,7 +25,7 @@ node {
         dependencyCheck: {
 
            stage('Dependency Check') {
-		dependency-check.sh --project "Juice Shop" --scan . --format HTML
+		sh 'dependency-check.sh --project "Juice Shop" --scan . --format HTML'
                 step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
             }
         }
