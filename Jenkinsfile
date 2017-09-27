@@ -21,7 +21,7 @@ node {
     }
 */
     stage('Application security testing') {      
-        sh 'echo "Trying to run depenency check '
+        sh 'echo "Trying to run depedency check"'
         dependencyCheck: {
 
            stage('Dependency Check') {
