@@ -28,12 +28,10 @@ node {
             app.push("latest")
         }
         sh 'echo "Docker push completed"'
+        sshagent(credentials: ['ubuntu']) {
+            sh 'ssh ubuntu@35.158.126.190 touch test'
+        }
+       
     }
-   /* stage('Deploy to Test Env'){
-        docker.run("lkoshy/juice-shop")
-    }
-    stage('Application Security Test'){
-         zap.run(localhost:8080/juice-shop)
-    } */
-         
+           
 }
