@@ -14,12 +14,10 @@ exports.config = {
     'chromeOptions': {
       'args': ['--window-size=1690,1000']
     }
-    /*,
     'proxy': {
     	'proxyType': 'manual',
     	'httpProxy': '35.159.17.15:8888'
   	}
-  	*/
   },
 
 /*  baseUrl: 'http://54.93.221.138:3000', */
