@@ -31,5 +31,7 @@ node {
             app.push("latest-platform-hardening-and-testing")
         }
         sh 'echo "Docker push completed"'
+	sh 'ssh owasp-2 "touch test"'
+
     }         
 }
