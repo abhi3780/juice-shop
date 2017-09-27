@@ -15,9 +15,13 @@ node {
 */
 
     stage('E2E Test') {         
-        wrap([$class: 'Xvfb', autoDisplayName: true, 'timeout': 15]) {
-            sh 'npm run protractor'
-            sh 'echo "e2e test completed"'
+    	lock (resource: 'master') {
+    		node {
+        		wrap([$class: 'Xvfb', autoDisplayName: true, 'timeout': 15]) {
+            		sh 'npm run protractor'
+            		sh 'echo "e2e test completed"'
+            	}
+            }
         }  
         sh 'echo "e2e test completed"'
     }
