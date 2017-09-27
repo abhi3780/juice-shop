@@ -18,7 +18,7 @@ node {
         }  
         sh 'echo "e2e test completed"'
     }
-    stage('Harden image') {      
+    stage('Application security testing') {      
         sh 'echo "Hello world"'
     }
     stage('Build Docker Image') {
