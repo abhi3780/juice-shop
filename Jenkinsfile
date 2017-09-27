@@ -4,6 +4,7 @@ node {
     stage('Clone Repository') {
         checkout scm
     } 
+/*
     stage('Unit Test App') {
          sh 'node -v'
          sh 'npm prune'
@@ -18,9 +19,18 @@ node {
         }  
         sh 'echo "e2e test completed"'
     }
+*/
     stage('Application security testing') {      
-        sh 'echo "Hello world"'
+        sh 'echo "Trying to run depenency check"'
+        dependencyCheck: {
+
+           stage('Dependency Check') {
+		dependency-check.sh --project "Juice Shop" --scan . --format HTML
+                step([$class: 'DependencyCheckPublisher', unstableTotalAll: '0'])
+            }
+        }
     }
+/*
     stage('Build Docker Image') {
         app = docker.build("helsinkiowasp/juice-shop")        
         sh 'echo "Docker Image completed"'
@@ -32,11 +42,6 @@ node {
         }
         sh 'echo "Docker push completed"'
     }
-   /* stage('Deploy to Test Env'){
-        docker.run("lkoshy/juice-shop")
-    }
-    stage('Application Security Test'){
-         zap.run(localhost:8080/juice-shop)
-    } */
+*/
          
 }
