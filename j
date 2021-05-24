@@ -14,7 +14,7 @@ pipeline {
     }    
     stage ('Build') {
       steps {
-      sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 "pwd" '
+      sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 " sudo docker run --rm -p 3001:3000 bkimminich/juice-shop" '
       sh 'echo -----'
        }
     }
