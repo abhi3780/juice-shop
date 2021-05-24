@@ -25,7 +25,5 @@ pipeline {
          sh 'echo REPORTS SAVED in /arachni Folder'
         }
     }
-       }
-    }
-   }
- }
+  }
+}
