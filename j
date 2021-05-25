@@ -17,12 +17,10 @@ pipeline {
       sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 " sudo docker run --rm -d  -p 8888:8080/tcp webgoat/webgoat-8.0:latest" '
       sh 'echo -----'
       sh 'echo -- BROWSE -- http://10.109.137.30:8888/WebGoat'
-       }
-      steps {
       sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 " docker run --rm -d  -p 3000:3000/tcp bkimminich/juice-shop:latest" '
       sh 'echo -----'
       sh 'echo -- BROWSE -- http://10.109.137.30:3000/'
-       } 
+      } 
     }
     stage ('DAST Scan') {
       steps {
