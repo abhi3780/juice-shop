@@ -12,7 +12,7 @@ pipeline {
             ''' 
       }
     }    
-    stage ('Build') {
+    stage ('Build & Deploy') {
       steps {
       sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 " sudo docker run --rm -d  -p 8888:8080/tcp webgoat/webgoat-8.0:latest" '
       sh 'echo ################################'
