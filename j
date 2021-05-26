@@ -19,13 +19,13 @@ pipeline {
       sh 'echo -- BROWSE -- http://10.109.137.30:8888/WebGoat'
       sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 " docker run --rm -d  -p 3000:3000/tcp bkimminich/juice-shop:latest" '
       sh 'echo ################################'
-      sh 'echo -- BROWSE -- http://10.109.137.30:3000/'
+      sh 'echo -- BROWSE -- http://10.109.137.30:3000/#/'
       } 
     }
     stage ('DAST Scan') {
       steps {
          sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 "sudo docker exec c2406913789c52e3dc69b680b93f60dc97d64b825f0948f2afbe2a9c95a61678 bash /arachni/bin/./arachni http://10.109.137.30:8888/WebGoat/ --timeout 10" '
-         sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 "sudo docker exec c2406913789c52e3dc69b680b93f60dc97d64b825f0948f2afbe2a9c95a61678 bash /arachni/bin/./arachni ./arachni http://10.109.137.30:3000 --timeout 10" '
+         sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 "sudo docker exec c2406913789c52e3dc69b680b93f60dc97d64b825f0948f2afbe2a9c95a61678 bash /arachni/bin/./arachni ./arachni http://10.109.137.30:3000/#/ --checks=xss*, -csrf* --timeout 10" '
          sh 'echo REPORTS SAVED in /arachni Folder'
         }
     }
