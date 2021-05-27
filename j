@@ -12,7 +12,13 @@ pipeline {
             ''' 
       }
     }    
-   stage ('Snyk Scan') {
+   
+   stage('install'){
+      steps {
+      sh 'npm install' // Dependency Installation stage
+    }
+  }  
+    stage ('Snyk Scan') {
       steps {
       snykSecurity organisation: 'e.vabhilash', projectName: 'abhi3780/juiceshop', snykInstallation: 'snyk', snykTokenId: 'Snyk_27May_1015PM'
       }
