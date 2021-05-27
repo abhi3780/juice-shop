@@ -12,17 +12,7 @@ pipeline {
             ''' 
       }
     }    
-   
-   stage('install'){
-      steps {
-      sh 'npm install' // Dependency Installation stage
-    }
-  }  
-    stage ('Snyk Scan') {
-      steps {
-      snykSecurity organisation: 'e.vabhilash', projectName: 'abhi3780/juiceshop', snykInstallation: 'snyk', snykTokenId: 'Snyk_27May_1015PM'
-      }
- }
+
    stage ('Build & Deploy') {
       steps {
       sh 'sshpass -p Stellantis01 ssh devuser@10.109.137.30 " sudo docker run --rm -d  -p 8888:8080/tcp webgoat/webgoat-8.0:latest" '
