@@ -57,7 +57,7 @@
     "grunt-contrib-uglify": "~3.0",
     "grunt-text-replace": "~0.4",
     "hashids": "~1.1",
-    "helmet": "~3.6",
+    "helmet": "~3.23.3",
     "html-entities": "~1.2",
     "js-yaml": "~3.8.2",
     "jsonwebtoken": "~7.4",
