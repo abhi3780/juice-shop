@@ -60,7 +60,7 @@
     "helmet": "~3.6",
     "html-entities": "~1.2",
     "js-yaml": "~3.8.2",
-    "jsonwebtoken": "~7.4",
+    "jsonwebtoken": "~8.0.0",
     "jssha": "~2.3",
     "morgan": "~1.8",
     "multer": "~1.3",
